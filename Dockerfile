@@ -10,6 +10,7 @@ COPY index.js .
 
 # Instalar dependencias
 RUN npm install -g npm@latest
+RUN npm config set strict-ssl false
 RUN npm install --no-audit --no-fund --legacy-peer-deps
 
 # Exponer el puerto de la aplicación
