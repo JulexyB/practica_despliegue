@@ -9,7 +9,7 @@ pipeline {
     stages {
         stage('Construir Imagen Docker') {
             steps {
-                sh 'docker build -t hola-mundo-node:latest .'
+                sh "${tool 'Dockertool'}/docker build -t hola-mundo-node:latest ."
             }
         }
 
