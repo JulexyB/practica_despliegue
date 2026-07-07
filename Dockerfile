@@ -6,12 +6,12 @@ WORKDIR /usr/src/app
 
 # Copiar archivos al contenedor
 COPY package*.json ./
-COPY index.js .
+COPY . .
 
 # Instalar dependencias
 RUN npm install -g npm@latest
 RUN npm config set strict-ssl false
-RUN npm install --no-audit --no-fund --legacy-peer-deps
+RUN npm install --include=dev --no-audit --no-fund
 
 # Exponer el puerto de la aplicación
 EXPOSE 3000
