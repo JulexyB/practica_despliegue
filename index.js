@@ -111,7 +111,11 @@ app.get('/users/:id', (req, res) => {
     res.json({ user });
 });
 
-// Iniciar el servidor
-app.listen(PORT, '0.0.0.0', () => {
-    console.log(`Servidor corriendo en http://0.0.0.0:${PORT}`);
-});
+// Iniciar el servidor solo si se ejecuta directamente
+if (require.main === module) {
+    app.listen(PORT, '0.0.0.0', () => {
+        console.log(`Servidor corriendo en http://0.0.0.0:${PORT}`);
+    });
+}
+
+module.exports = app;
